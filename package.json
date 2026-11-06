@@ -5,9 +5,11 @@
   "description": "A notification fan-out system.",
   "type": "module",
   "scripts": {
-    "check-redis": "node src/check-redis.js"
+    "check-redis": "node src/check-redis.js",
+    "first-job": "node src/first-job.js"
   },
   "dependencies": {
+    "bullmq": "^6.7.1",
     "ioredis": "^6.0.0"
   }
 }
