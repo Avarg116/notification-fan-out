@@ -1,0 +1,13 @@
+{
+  "name": "notification-fanout",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A notification fan-out system.",
+  "type": "module",
+  "scripts": {
+    "check-redis": "node src/check-redis.js"
+  },
+  "dependencies": {
+    "ioredis": "^6.0.0"
+  }
+}
