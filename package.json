@@ -8,12 +8,15 @@
     "check-redis": "node src/check-redis.js",
     "first-job": "node src/first-job.js",
     "api": "node src/api.js",
-    "email-worker": "node --env-file=.env src/email-worker.js"
+    "email-worker": "node --env-file=.env src/email-worker.js",
+    "push-worker": "node src/push-worker.js",
+    "sms-worker": "node --env-file=.env src/sms-worker.js"
   },
   "dependencies": {
     "bullmq": "^6.7.1",
     "express": "^5.3.0",
     "ioredis": "^6.0.0",
-    "resend": "^6.37.0"
+    "resend": "^6.37.0",
+    "twilio": "^6.3.0"
   }
 }

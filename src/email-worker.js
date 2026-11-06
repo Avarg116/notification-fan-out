@@ -4,7 +4,7 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const worker = new Worker(
-  "notifications",
+  "email",
   async (job) => {
     const { email, message } = job.data;
 
