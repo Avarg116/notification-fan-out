@@ -11,6 +11,11 @@ const emailQueue = new Queue("email", { connection });
 const pushQueue = new Queue("push", { connection });
 const smsQueue = new Queue("sms", { connection });
 
+const jobOptions = {
+  attempts: 4,
+  backoff: { type: "exponential", delay: 1000 },
+};
+
 app.post("/notifications", async (req, res) => {
   const { email, phone, message } = req.body ?? {};
 
@@ -20,9 +25,9 @@ app.post("/notifications", async (req, res) => {
 
   const event = { id: randomUUID(), email, phone, message };
 
-  await emailQueue.add("notification-requested", event);
-  await pushQueue.add("notification-requested", event);
-  await smsQueue.add("notification-requested", event);
+  await emailQueue.add("notification-requested", event, jobOptions);
+  await pushQueue.add("notification-requested", event, jobOptions);
+  await smsQueue.add("notification-requested", event, jobOptions);
 
   res.status(202).json({ notificationId: event.id });
 });

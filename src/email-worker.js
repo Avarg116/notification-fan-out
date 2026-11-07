@@ -25,7 +25,7 @@ const worker = new Worker(
 );
 
 worker.on("failed", (job, err) => {
-  console.log(`job ${job.id}: failed - ${err.message}`);
+  console.log(`job ${job.id}: attempt ${job.attemptsMade} failed - ${err.message}`);
 });
 
 console.log("email worker running");
